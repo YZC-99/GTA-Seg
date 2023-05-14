@@ -311,6 +311,7 @@ def train(
                 aux = F.interpolate(aux, (h, w), mode="bilinear", align_corners=True)
                 sup_loss = sup_loss_fn([pred, aux], label_l) + 0 * rep.sum()
             else:
+                # 默认CE-loss
                 sup_loss = sup_loss_fn(pred, label_l) + 0 * rep.sum()
 
             model_teacher.train()
