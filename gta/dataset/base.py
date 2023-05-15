@@ -28,6 +28,12 @@ class BaseDataset(Dataset):
                 ]
                 for line in open(d_list, "r")
             ]
+        elif "idrid" in d_list:
+            self.list_sample = [
+                [
+                    "images/{}.jpg".format(line.strip()),
+                ]
+            ]
         else:
             raise "unknown dataset!"
 
